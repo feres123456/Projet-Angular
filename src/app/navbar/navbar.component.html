@@ -1,0 +1,33 @@
+<header id="header" class="fixed-top" >
+    <div class="container d-flex align-items-center"  >
+
+
+
+      <h1 class="logo me-auto"><a href="">E-learning</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0 "  id="navbar" >
+        <ul >
+          <li><a  href="" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!isAdmin">Home</a></li>
+          <li><a href="#" routerLink="about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!isAdmin">About</a></li>
+          <li><a href=""  routerLink="courses" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isUser || isAdmin" >Courses</a></li>
+          <li><a href="" routerLink="trainers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Trainers</a></li>
+          <li><a href="" routerLink="events" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Events</a></li>     
+          <li><a href="" routerLink="dash" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"   *ngIf="isAdmin"> ADMIN</a></li>
+          <li><a href="" routerLink="prof" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  *ngIf="isProf" > PROF</a></li>
+
+          
+          <li><a href=""  routerLink="contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"*ngIf="!isAdmin">Contact</a></li>
+          <li><a href="" routerLink="profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isUser || isAdmin">Profile</a></li>
+
+        </ul>
+        <i class="bi mobile-nav-toggle bi-list"  id="mobile" ></i>
+      </nav><!-- .navbar -->
+      <a href="" class="get-started-btn" routerLink="login" (click)="logout()" *ngIf="isUser && !isAdmin">Logout</a>
+
+      <a href="" class="get-started-btn" routerLink="login" *ngIf="!isUser" >Get Started</a>
+
+    </div>
+  </header><!-- End Header ---->
+  

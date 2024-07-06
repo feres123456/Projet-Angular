@@ -1,0 +1,37 @@
+ 
+ <!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h2>Events</h2>
+    </div>
+</div><!-- End Breadcrumbs -->
+ 
+ 
+ 
+ 
+ 
+ <!-- ======= Events Section ======= -->
+ 
+ <section id="events" class="events">
+    <div class="container" data-aos="fade-up">
+      
+
+      <div class="row">
+        
+        <div class="col-md-6 d-flex align-items-stretch" *ngFor="let item of dataevent">
+          <div class="card">
+            <div class="card-img">
+              <img [src]="item.imageevent" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">{{item.name}}</a></h5>
+              <p class="font-italic text-center">{{item.time}}</p>
+              <p class="card-text">{{item.description}}</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </section><!-- End Events Section -->

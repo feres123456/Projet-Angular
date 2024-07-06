@@ -1,0 +1,125 @@
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h2> Profile</h2>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+        <br><br><br>
+        <br>
+<div class="content">
+    <div class="card">
+      <div class="firstinfo"><img [src]="dataProfile.image"/>
+        <div class="profileinfo">
+          <h1>{{dataProfile.name}}</h1>
+          <h3>{{dataProfile.email}}</h3>
+          <p class="bio">{{dataProfile.Uid}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="badgescard"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Update
+    </button> 
+    
+  
+  </div>
+    
+  </div>
+
+  <!-- Modal -->
+  
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div>
+          <a>   Full Name : <br> </a>
+          <input type="Text" name="name" [(ngModel)]="dataProfile.name"> </div>
+          <a>Image  : <br></a>
+          <input type="file" accept=".jpg, .png"  (change)="uploadImage($event)">
+
+
+          <div class="alert alert-succes" *ngIf="succesUpdate">{{succesUpdate}}</div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="update()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!-- ======= Popular Courses Section ======= -->
+
+
+<section id="popular-courses" class="courses">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>favorite courses</h2>
+      <p>My Courses</p>
+    </div>
+
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let item of coursprofile ; index  as i"   >
+
+
+        <div *ngIf="item.veri">
+        
+        <div class="course-item" >
+          <img [src]="item.imageprof" class="img-fluid" alt="...">
+          <div class="course-content">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4  > Subject : {{item.name}}</h4>
+             
+            </div>
+
+            <p>{{item.veri}}</p>
+            <h3><a [href]="item.chap"  > Course's Name :  {{item.chapitre}}</a></h3>
+
+
+            <a [href]="item.chap" target="_blank"> <button  type="button" class="btn btn-outline-success btn-sm">Open PDF</button> </a>
+
+            
+            <button  type="button" class="btn btn-outline-danger btn-sm"  (click)="delete(i)">Delete</button> 
+
+            
+           
+
+
+
+            <div class="trainer d-flex justify-content-between align-items-center">
+              <div class="trainer-profile d-flex align-items-center">
+               
+                <span> Description :{{item.description}} <br> </span>
+
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      </div> <!-- End Course Item-->
+      <br>
+      <br>
+    </div>
+    
+
+  </div>
+</section><!-- End Popular Courses Section -->
+
+        
+  

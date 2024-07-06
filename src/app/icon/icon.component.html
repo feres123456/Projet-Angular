@@ -1,0 +1,121 @@
+<br>
+<br>
+<br>
+<section id="popular-courses" class="courses">
+  
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Forum</h2>
+        <p>Welcome to the forum</p>
+      </div>
+      
+      <div class="row" data-aos="zoom-in" data-aos-delay="100" >
+    
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let item of dataArray ; index as i">
+        <div *ngIf="number == i">
+          <div class="course-item">
+            <img [src]="item.imageprof" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4> Subject : {{item.name}}</h4>
+               
+              </div>
+
+              <h3><a   > Course's Name :  {{item.chapitre}}</a></h3>
+
+
+              <a [href]="item.chap" target="_blank"> <button  type="button" class="btn btn-outline-success btn-sm">Open course</button> </a>
+
+
+              <a> <button  type="button" class="btn btn-outline-success btn-sm" (click)="mycourses(i)" >ADD</button> </a>
+               <div *ngIf="add === i">
+              <div class="alert alert-success" *ngIf="successadd">{{successadd}}</div>
+
+            </div>
+
+            
+
+
+              <div class="trainer d-flex justify-content-between align-items-center">
+                <div class="trainer-profile d-flex align-items-center">
+                 
+                  <span> Trainer :  {{item.description}}</span>
+
+                </div>
+               
+              </div>
+              
+            </div>
+          </div>
+          
+        </div> <!-- End Course Item-->
+        <br>
+        <br>
+      </div>
+      </div>
+      
+
+    </div>
+  </section><!-- End Popular Courses Section -->
+
+
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Message</th>
+        <th scope="col" *ngIf="isAdmin">ID</th>
+        <th scope="col" *ngIf="isAdmin"> Delete Message</th>
+
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of coursprofile ; let index = index" >
+        <th scope="row">{{index +1 }}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.message}}</td>
+        <td *ngIf="isAdmin">{{item.id}}</td>
+
+        <td *ngIf="isAdmin"><button (click)="deleteforum(item.id)">Delete</button></td>
+        
+      </tr>
+
+    </tbody>
+  </table>
+
+
+<div class="margin">
+  <div class="col-lg-8 mt-5 mt-lg-0">
+
+    <form action="" method="post" role="form" class="php-email-form" #f="ngForm">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          
+          <input type="text" name="name" #name="ngModel" ngModel class="form-control" id="name" placeholder="Your Name"  required>
+          <div class="alert alert-danger " *ngIf="name.invalid && name.touched">Name is required</div>
+        </div>
+        
+      </div>
+     
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message" #message="ngModel" ngModel required></textarea>
+      </div>
+      <div class="my-3">
+    
+
+       
+      </div>
+      <div class="alert alert-success" *ngIf="successadd">{{successadd}}</div>
+
+      <div class="text-center"><button type="submit" class="btn btn-outline-success "  (click)="addforum(f)" [disabled]="f.invalid" >Send Message</button></div>
+    </form>
+
+  </div>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>

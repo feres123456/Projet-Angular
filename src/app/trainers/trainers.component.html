@@ -1,0 +1,35 @@
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs" data-aos="fade-in">
+  <div class="container">
+    <h2>Trainers</h2>
+    </div>
+</div><!-- End Breadcrumbs -->
+
+<section id="trainers" class="trainers">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let item of datatrainer">
+          <div class="member">
+            <img [src]="item.imageprof" class="img-fluid" alt="">
+            <div class="member-content">
+              <h4>{{item.name}}</h4>
+              <span>{{item.degre}}</span>
+              <p>
+                {{ item.description}} 
+                 </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+      </div>
+
+    </div>
+  </section><!-- End Trainers Section -->
